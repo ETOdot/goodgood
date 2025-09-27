@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+    <title>部落冲突 - 龘</title>
+    <meta name="author" content="龘">
+    <meta name="copyright" content="龘">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="description" content="部落冲突龘部落官方主页 - 加入我们，一起征服世界！">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="部落冲突 - 龘">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:site_name" content="龘">
+    <meta property="og:description" content="部落冲突龘部落官方主页 - 加入我们，一起征服世界！">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="https://example.com/img/clash-of-clans-banner.jpg">
+    <meta property="article:author" content="龘">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://example.com/img/clash-of-clans-banner.jpg">
+    <link rel="shortcut icon" href="/img/clash-of-clans-icon.png">
+    <link rel="canonical" href="https://example.com">
+    <link rel="preconnect" href="//cdn.jsdelivr.net"/>
+    <link rel="preconnect" href="//hm.baidu.com"/>
+    <link rel="preconnect" href="//busuanzi.ibruce.info"/>
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #1a365d;
+            --accent-color: #e53e3e;
+            --background-color: #f7fafc;
+            --text-color: #2d3748;
+            --header-bg: url('/img/clash-banner.jpg');
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 头部样式 */
+        #page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--header-bg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        #site-title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: var(--primary-color);
+        }
+        
+        #site-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+        
+        /* 导航栏样式 */
+        #nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(26, 54, 93, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .site-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .menus_items {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .site-page {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .site-page:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 主要内容区域 */
+        .layout {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+        
+        .recent-posts {
+            flex: 2;
+        }
+        
+        .aside-content {
+            flex: 1;
+        }
+        
+        /* 文章卡片样式 */
+        .recent-post-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .article-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .article-title:hover {
+            color: var(--accent-color);
+        }
+        
+        .article-meta-wrap {
+            color: #718096;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* 侧边栏卡片样式 */
+        .card-widget {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item-headline {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+        
+        /* 部落信息样式 */
+        .clan-info {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .clan-badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            background: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .clan-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .clan-tag {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        
+        .clan-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        /* 成员列表样式 */
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .member-item {
+            text-align: center;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .member-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .member-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #b8941f;
+        }
+        
+        .btn-join {
+            background: var(--accent-color);
+            margin-top: 15px;
+        }
+        
+        .btn-join:hover {
+            background: #c53030;
+        }
+        
+        /* 页脚样式 */
+        #footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        #footer-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ft {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .ft-item-1, .ft-item-2 {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .ft-t {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .ft-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .ft-links li {
+            margin-bottom: 10px;
+        }
+        
+        .ft-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .ft-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .layout {
+                flex-direction: column;
+            }
+            
+            .menus_items {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            #site-title {
+                font-size: 2.5rem;
+            }
+            
+            .clan-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+    <div id="page-header">
+        <nav id="nav">
+            <span id="blog-info">
+                <a href="/" title="龘"></a>
+                <div class="site-name">龘</div>
+            </span>
+            <div id="menus">
+                <div class="menus_items">
+                    <div class="menus_item">
+                        <a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 部落首页</span></a>
+                    </div>
+                    <div class="menus_item">
+                        <a class="site-page" href="/members/"><i class="fa-fw fas fa-users"></i><span> 部落成员</span></a>
+                    </div>
+                    <div class="menus_item">
+                        <a class="site-page" href="/war/"><i class="fa-fw fas fa-shield-alt"></i><span> 部落战况</span></a>
+                    </div>
+                    <div class="menus_item">
+                        <a class="site-page" href="/join/"><i class="fa-fw fas fa-door-open"></i><span> 加入我们</span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="site-info">
+            <h1 id="site-title">龘</h1>
+            <div id="site-subtitle">部落冲突 | 等级12 | 正在缺少淡水</div>
+            <div id="site_social_icons">
+                <a class="social-icon" href="#" target="_blank" title="加入我们的Discord"><i class="fab fa-discord"></i></a>
+                <a class="social-icon" href="#" target="_blank" title="关注我们的YouTube"><i class="fab fa-youtube"></i></a>
+                <a class="social-icon" href="#" target="_blank" title="加入QQ群"><i class="fab fa-qq"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="layout" id="content-inner">
+        <div class="recent-posts" id="recent-posts">
+            <div class="recent-post-item">
+                <a class="article-title" href="/2025/11/06/war-report/" title="部落战报：">部落战报：</a>
+                <div class="article-meta-wrap">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="article-meta-label">发表于</span>
+                        <time datetime="2025-11-06T11:19:00.000Z" title="发表于 2025-11-06 19:19:00">2025-9-27</time>
+                    </span>
+                </div>
+                <div class="content">
+                    <p></p>
+                    <p></p>
+                    <p>下一场部落战将于本周日开始，请各位成员提前做好准备！</p>
+                </div>
+            </div>
+            
+            <div class="recent-post-item">
+                <a class="article-title" href="/2025/9/27/recruitment/" title="招募公告：急需高本玩家">招募公告：急需高本玩家</a>
+                <div class="article-meta-wrap">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="article-meta-label">发表于</span>
+                        <time datetime="2025-9-27T08:30:00.000Z" title="发表于 2025-9-27 16:30:00">2025-9-27</time>
+                    </span>
+                </div>
+                <div class="content">
+                    <p>荣耀部落目前正在积极招募14本及以上玩家！</p>
+                    <p>我们提供：</p>
+                    <ul>
+                        <li>活跃的部落氛围</li>
+                        <li>定期的部落战和联赛</li>
+                        <li>高级兵种捐赠</li>
+                        <li>专业的战术指导</li>
+                    </ul>
+                    <p>要求：</p>
+                    <ul>
+                        <li>活跃参与部落战</li>
+                        <li>每日捐赠兵力</li>
+                        <li>遵守部落规则</li>
+                    </ul>
+                    <p>有意者请联系首领或直接申请加入！</p>
+                </div>
+            </div>
+            
+            <div class="recent-post-item">
+                <a class="article-title" href="/2025/9/27/strategy/" title="新版本战术分析：超级部队搭配">新版本战术分析：超级部队搭配</a>
+                <div class="article-meta-wrap">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="article-meta-label">发表于</span>
+                        <time datetime="2025-9-27T14:20:00.000Z" title="发表于 2025-9-27 22:20:00">2025-9-27</time>
+                    </span>
+                </div>
+                <div class="content">
+                    <p>随着最新版本的更新，超级部队的搭配策略有了新的变化。本文将分析几种高效的超级部队组合：</p>
+                    <p><strong>1. 超级野蛮人 + 超级弓箭手</strong></p>
+                    <p>这种组合适合清理外围建筑，超级野蛮人吸引火力，超级弓箭手在后方输出。</p>
+                    <p><strong>2. 超级巨人 + 超级法师</strong></p>
+                    <p>超级巨人作为肉盾，超级法师提供强大的AOE伤害，适合对抗密集防御。</p>
+                    <p><strong>3. 超级飞龙 + 气球兵</strong></p>
+                    <p>空中力量的完美组合，特别适合对抗地面防御密集的阵型。</p>
+                    <p>更多战术分析请查看完整文章...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="aside-content" id="aside-content">
+            <div class="card-widget card-info">
+                <div class="clan-info">
+                    <div class="clan-badge">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="clan-name">龘</div>
+                    <div class="clan-tag"><div id="#2QJPVJQPQ"></div></div>
+                    <div class="clan-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">部落等级</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">48/50</div>
+                            <div class="stat-label">成员数量</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">35</div>
+                            <div class="stat-label">胜利次数</div>
+                        </div>
+                    </div>
+                    <a href="/join/" class="btn btn-join">立即加入</a>
+                </div>
+            </div>
+            
+            <div class="card-widget card-announcement">
+                <div class="item-headline">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>部落公告</span>
+                </div>
+                <div class="announcement_content">
+                    <p><strong>部落战提醒：</strong>部落战不间断，请准备好战斗吧！</p>
+                    <p><strong>捐兵要求：</strong>请优先捐赠请求中的高级兵种，保持部落活跃度。</p>
+                    <p><strong>联赛准备：</strong>月度联赛即将开始，请确保你的攻击次数已准备好。</p>
+                </div>
+            </div>
+            
+            <div class="card-widget">
+                <div class="item-headline">
+                    <i class="fas fa-trophy"></i>
+                    <span>部落排名</span>
+                </div>
+                <div class="content">
+                    <p><strong>服务器排名：</strong>第25135名</p>
+                    <p><strong>需要大本营等级：</strong>14</p>
+                    <p><strong>所需奖杯：</strong>2600</p>
+                    <p><strong>连胜记录：</strong>0场</p>
+                </div>
+            </div>
+            
+            <div class="card-widget">
+                <div class="item-headline">
+                    <i class="fas fa-users"></i>
+                    <span>核心成员</span>
+                </div>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div class="member-avatar">K</div>
+                        <div class="member-name">三里雾</div>
+                        <div class="member-role">首领</div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar">W</div>
+                        <div class="member-name">火腿</div>
+                        <div class="member-role">副首领</div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar">E</div>
+                        <div class="member-name">狰狞圣者yzt</div>
+                        <div class="member-role">副首领</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div id="footer-wrap">
+            <div class="ft">
+                <div class="ft-item-1">
+                    <p class="ft-t">部落资源</p>
+                    <ul class="ft-links">
+                        <li><a href="https://clashpost.com/p">数据指南</a></li>
+                        <li><a href="/base-design/">阵型分享(暂不开放)</a></li>
+                        <li><a href="/update-news/">更新资讯(暂不开放)</a></li>
+                        <li><a href="/event-calendar/">活动日历(暂不开放)</a></li>
+                    </ul>
+                </div>
+                <div class="ft-item-2">
+                    <p class="ft-t">相关链接</p>
+                    <ul class="ft-links">
+                        <li><a href="https://supercell.com/en/games/clashofclans/" target="_blank">官方网站</a></li>
+                        <li><a href="https://clashofclans.fandom.com/wiki/Clash_of_Clans_Wiki" target="_blank">游戏百科</a></li>
+                        <li><a href="https://www.reddit.com/r/ClashOfClans/" target="_blank">Reddit社区</a></li>
+                        <li><a href="https://www.youtube.com/user/ClashOfClans" target="_blank">YouTube频道</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 荣耀部落 - 部落冲突游戏社区
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟部落成员数据加载
+            setTimeout(function() {
+                const memberItems = document.querySelectorAll('.member-item');
+                memberItems.forEach(item => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                });
+            }, 500);
+            
+            // 加入部落按钮动画
+            const joinBtn = document.querySelector('.btn-join');
+            if (joinBtn) {
+                joinBtn.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                joinBtn.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
