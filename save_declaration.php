@@ -20,33 +20,44 @@ if (empty($name) || empty($text)) {
     exit;
 }
 
-// 过滤和清理数据（安全措施）
-$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-$text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+// 本地文件路径
+$filePath = 'declarations.txt';
 
-// 创建数据目录（如果不存在）
-$dataDir = 'data';
-if (!is_dir($dataDir)) {
-    if (!mkdir($dataDir, 0755, true)) {
-        echo json_encode(['success' => false, 'message' => '无法创建数据目录']);
-        exit;
+// 构建要追加的内容
+$newEntry = "=== 宣言 ===\n";
+$newEntry .= "时间: " . date('Y-m-d H:i:s') . "\n";
+$newEntry .= "姓名: " . $name . "\n";
+$newEntry .= "内容: " . $text . "\n";
+$newEntry .= "====================\n\n";
+
+// 尝试追加内容到文件
+try {
+    // 使用文件追加模式打开文件
+    $fileHandle = fopen($filePath, 'a');
+    
+    if ($fileHandle === false) {
+        throw new Exception('无法打开文件进行写入');
     }
-}
-
-// 设置文件路径
-$filename = $dataDir . '/declarations.txt';
-
-// 准备要保存的数据
-$data = "=== 宣言 ===\n";
-$data .= "时间: " . date('Y-m-d H:i:s') . "\n";
-$data .= "姓名: " . $name . "\n";
-$data .= "内容: " . $text . "\n";
-$data .= "====================\n\n";
-
-// 尝试写入文件
-if (file_put_contents($filename, $data, FILE_APPEND | LOCK_EX) !== false) {
-    echo json_encode(['success' => true, 'message' => '宣言已成功保存']);
-} else {
-    echo json_encode(['success' => false, 'message' => '无法保存到文件，请检查文件权限']);
+    
+    // 写入内容
+    $writeResult = fwrite($fileHandle, $newEntry);
+    
+    // 关闭文件
+    fclose($fileHandle);
+    
+    if ($writeResult === false) {
+        throw new Exception('写入文件失败');
+    }
+    
+    echo json_encode([
+        'success' => true, 
+        'message' => '宣言已成功保存到本地文件'
+    ]);
+    
+} catch (Exception $e) {
+    echo json_encode([
+        'success' => false, 
+        'message' => '保存失败: ' . $e->getMessage()
+    ]);
 }
 ?>
