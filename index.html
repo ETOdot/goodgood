@@ -25,23 +25,54 @@
     <link rel="preconnect" href="//cdn.jsdelivr.net"/>
     <link rel="preconnect" href="//hm.baidu.com"/>
     <link rel="preconnect" href="//busuanzi.ibruce.info"/>
-	<!-- 引入css文件 -->
-	<link rel="stylesheet" href="1.css" />
-	<!-- 引入外部JS文件 -->
-	<script src="js/declarations.js"></script>
-<style>
+    
+    <style>
+        /* 合并所有CSS样式 */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            cursor: url('picture/shubiao.jpg'), auto;
+        }
+        
+        a, button, .btn, .ship-link {
+            cursor: url('picture/shubiao.jpg'), pointer;
+        }
+        
+        input, textarea {
+            cursor: url('picture/shubiao.jpg') 16 16, text;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
-            color: #fff;
+            background-image: url('picture/main.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
-            padding: 20px;
+            position: relative;
+            color: #fff;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        #page-header,
+        .layout,
+        #footer {
+            position: relative;
+            z-index: 1;
         }
         
         .container {
@@ -163,307 +194,6 @@
             color: #fdbb2d;
         }
         
-        .tribal-pattern {
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(253, 187, 45, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(178, 31, 31, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 40% 80%, rgba(26, 42, 108, 0.1) 0%, transparent 20%);
-        }
-        
-        @media (max-width: 768px) {
-            .declarations-container {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-		<style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #d4af37;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-        }
-        
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .form-section, .info-section {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .form-container {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        input:focus, textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-        
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-        }
-        
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .info-box {
-            background: #e8f4fd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-left: 4px solid #3498db;
-        }
-        
-        /* 宣言显示区域样式 */
-        .declarations-section {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .refresh-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .declarations-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .declaration-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #d4af37;
-            transition: transform 0.3s;
-        }
-        
-        .declaration-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .declaration-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .member-name {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .declaration-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-        
-        .declaration-text {
-            color: #34495e;
-            line-height: 1.6;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
-            grid-column: 1 / -1;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-            
-            .declarations-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-	<style>
-		input, textarea {
-		    cursor: url('picture/shubiao.jpg') 16 16, text;
-		}
-			/* 自定义鼠标样式 */
-			* {
-		    	cursor: url('picture/shubiao.jpg'), auto;
-			}
-		
-			/* 针对链接和按钮的特殊光标 */
-			a, button, .btn, .ship-link {
-		    	cursor: url('picture/shubiao.jpg'), pointer;
-			}
-		
-		/* 针对输入框的光标 */
-		input, textarea {
-		    cursor: url('picture/shubiao.jpg'), text;
-		}
-        /* 基础样式 */
-        :root {
-            --primary-color: #d4af37;
-            --secondary-color: #1a365d;
-            --accent-color: #e53e3e;
-            --background-color: #f7fafc;
-            --text-color: #2d3748;
-            --header-bg: url('/img/clash-banner.jpg');
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-        }
-        
         /* 头部样式 */
         #page-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--header-bg);
@@ -479,7 +209,7 @@
             font-size: 3.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         #site-subtitle {
@@ -503,7 +233,7 @@
         .site-name {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         .menus_items {
@@ -519,7 +249,7 @@
         }
         
         .site-page:hover {
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         /* 主要内容区域 */
@@ -546,12 +276,13 @@
             padding: 25px;
             margin-bottom: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid var(--primary-color);
+            border-left: 5px solid #d4af37;
+            color: #333;
         }
         
         .article-title {
             font-size: 1.5rem;
-            color: var(--secondary-color);
+            color: #1a365d;
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 10px;
@@ -559,7 +290,7 @@
         }
         
         .article-title:hover {
-            color: var(--accent-color);
+            color: #e53e3e;
         }
         
         .article-meta-wrap {
@@ -575,14 +306,15 @@
             padding: 20px;
             margin-bottom: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #333;
         }
         
         .item-headline {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 15px;
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--primary-color);
+            color: #1a365d;
+            border-bottom: 2px solid #d4af37;
             padding-bottom: 8px;
         }
         
@@ -597,19 +329,19 @@
             height: 120px;
             margin: 0 auto 15px;
             border-radius: 50%;
-            border: 5px solid var(--primary-color);
+            border: 5px solid #d4af37;
             background: #f0f4f8;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         .clan-name {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--secondary-color);
+            color: #1a365d;
             margin-bottom: 5px;
         }
         
@@ -631,7 +363,7 @@
         .stat-value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         .stat-label {
@@ -664,17 +396,31 @@
             height: 60px;
             border-radius: 50%;
             margin: 0 auto 10px;
-            background: var(--secondary-color);
+            background: #1a365d;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .member-avatar img:hover {
+            transform: scale(1.05);
         }
         
         .member-name {
             font-weight: bold;
             margin-bottom: 5px;
+            color: #2c3e50;
         }
         
         .member-role {
@@ -686,7 +432,7 @@
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background: var(--primary-color);
+            background: #d4af37;
             color: white;
             border-radius: 5px;
             text-decoration: none;
@@ -701,7 +447,7 @@
         }
         
         .btn-join {
-            background: var(--accent-color);
+            background: #e53e3e;
             margin-top: 15px;
         }
         
@@ -711,7 +457,7 @@
         
         /* 页脚样式 */
         #footer {
-            background: var(--secondary-color);
+            background: #1a365d;
             color: white;
             padding: 40px 0 20px;
             margin-top: 50px;
@@ -740,7 +486,7 @@
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         .ft-links {
@@ -759,7 +505,7 @@
         }
         
         .ft-links a:hover {
-            color: var(--primary-color);
+            color: #d4af37;
         }
         
         .copyright {
@@ -788,146 +534,46 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .declarations-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .member-avatar {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .member-avatar {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-	
-	    <script>
-	        // 设置当前日期
-	        document.addEventListener('DOMContentLoaded', function() {
-	            const dateElement = document.getElementById('declarationDate');
-	            const now = new Date();
-	            const formattedDate = now.toLocaleDateString('zh-CN', {
-	                year: 'numeric',
-	                month: 'long',
-	                day: 'numeric',
-	                weekday: 'long'
-	            });
-	            dateElement.textContent = formattedDate;
-	            
-	            // 加载已保存的宣言
-	            loadDeclarations();
-	            
-	            // 表单提交处理
-	            document.getElementById('declarationForm').addEventListener('submit', function(e) {
-	                e.preventDefault();
-	                
-	                const name = document.getElementById('memberName').value.trim();
-	                const text = document.getElementById('declarationText').value.trim();
-	                const date = formattedDate;
-	                
-	                if (name && text) {
-	                    saveDeclaration(name, text, date);
-	                    document.getElementById('memberName').value = '';
-	                    document.getElementById('declarationText').value = '';
-	                    
-	                    // 显示成功消息
-	                    const successMsg = document.getElementById('successMessage');
-	                    successMsg.style.display = 'block';
-	                    setTimeout(() => {
-	                        successMsg.style.display = 'none';
-	                    }, 3000);
-	                }
-	            });
-	        });
-	        
-	        // 保存宣言到本地存储
-	        function saveDeclaration(name, text, date) {
-	            let declarations = JSON.parse(localStorage.getItem('tribeDeclarations')) || [];
-	            declarations.unshift({ name, text, date });
-	            localStorage.setItem('tribeDeclarations', JSON.stringify(declarations));
-	            loadDeclarations();
-	        }
-	        
-	        // 从本地存储加载宣言
-	        function loadDeclarations() {
-	            const declarations = JSON.parse(localStorage.getItem('tribeDeclarations')) || [];
-	            const declarationsList = document.getElementById('declarationsList');
-	            
-	            if (declarations.length === 0) {
-	                declarationsList.innerHTML = '<div class="empty-state">暂无宣言，成为第一个发表宣言的部落成员吧！</div>';
-	                return;
-	            }
-	            
-	            declarationsList.innerHTML = '';
-	            declarations.forEach(declaration => {
-	                const declarationElement = document.createElement('div');
-	                declarationElement.className = 'declaration-item';
-	                declarationElement.innerHTML = `
-	                    <div class="member-name">${declaration.name}</div>
-	                    <div class="declaration-text">${declaration.text}</div>
-	                    <div class="declaration-date">${declaration.date}</div>
-	                `;
-	                declarationsList.appendChild(declarationElement);
-	            });
-	        }
-	    </script>
-    <style>
-    /* 自适应图片样式 */
-    .member-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: transform 0.3s ease;
-    }
-    
-    .member-avatar img:hover {
-        transform: scale(1.05);
-    }
-    
-    /* 响应式调整 */
-    @media (max-width: 768px) {
-        .member-avatar {
-            width: 80px;
-            height: 80px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .member-avatar {
-            width: 60px;
-            height: 60px;
-        }
-    }
-    </style>
-<style>
-/* 网页背景图片样式 */
-body {
-    background-image: url('picture/main.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    position: relative;
-}
-
-/* 添加半透明遮罩提高内容可读性 */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-}
-
-/* 确保内容区域在背景之上 */
-#page-header,
-.layout,
-#footer {
-    position: relative;
-    z-index: 1;
-}
-</style>
-
-	<div id="page-header">
+    <div id="page-header">
         <nav id="nav">
             <span id="blog-info">
                 <a href="/" title="龘"></a>
@@ -936,118 +582,55 @@ body::before {
             <div id="menus">
                 <div class="menus_items">
                     <div class="menus_item">
-                        <a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 部落首页</span></a>
+                        <a class="site-page" href="/"><span> 部落首页</span></a>
                     </div>
                     <div class="menus_item">
-                        <a class="site-page" href="/members/"><i class="fa-fw fas fa-users"></i><span> 部落成员</span></a>
+                        <a class="site-page" href="/members/"><span> 部落成员</span></a>
                     </div>
                     <div class="menus_item">
-                        <a class="site-page" href="/war/"><i class="fa-fw fas fa-shield-alt"></i><span> 部落战况</span></a>
+                        <a class="site-page" href="/war/"><span> 部落战况</span></a>
                     </div>
                     <div class="menus_item">
-                        <a class="site-page" href="/join/"><i class="fa-fw fas fa-door-open"></i><span> 加入我们</span></a>
+                        <a class="site-page" href="/join/"><span> 加入我们</span></a>
                     </div>
                 </div>
             </div>
         </nav>
         <div id="site-info">
             <h1 id="site-title">龘</h1>
-            <div id="site-subtitle">部落冲突 | 等级12 | 正在缺少淡水</div>
+            <div id="site-subtitle">部落冲突 | 等级12 | 正在招募成员</div>
             <div id="site_social_icons">
-                <a class="social-icon" href="#" target="_blank" title="加入我们的Discord"><i class="fab fa-discord"></i></a>
-                <a class="social-icon" href="#" target="_blank" title="关注我们的YouTube"><i class="fab fa-youtube"></i></a>
-                <a class="social-icon" href="#" target="_blank" title="加入QQ群"><i class="fab fa-qq"></i></a>
+                <a class="social-icon" href="#" target="_blank" title="加入我们的Discord">Discord</a>
+                <a class="social-icon" href="#" target="_blank" title="关注我们的YouTube">YouTube</a>
+                <a class="social-icon" href="#" target="_blank" title="加入QQ群">QQ</a>
             </div>
         </div>
     </div>
 
     <main class="layout" id="content-inner">
         <div class="recent-posts" id="recent-posts">
-            <div class="recent-post-item">
-                <a class="article-title" href="/2025/11/06/war-report/" title="部落战报：">部落战报：</a>
-                <div class="article-meta-wrap">
-                    <span class="post-meta-date">
-                        <i class="far fa-calendar-alt"></i>
-                        <span class="article-meta-label">发表于</span>
-                        <time datetime="2025-11-06T11:19:00.000Z" title="发表于 2025-11-06 19:19:00">2025-9-27</time>
-                    </span>
-                </div>
-                <div class="content">
-                    <p></p>
-                    <p></p>
-                    <p>下一场部落战将于本周日开始，请各位成员提前做好准备！</p>
-                </div>
-            </div>
-            
-            <div class="recent-post-item">
-                <a class="article-title" href="/2025/9/27/recruitment/" title="招募公告：急需高本玩家">招募公告：急需高本玩家</a>
-                <div class="article-meta-wrap">
-                    <span class="post-meta-date">
-                        <i class="far fa-calendar-alt"></i>
-                        <span class="article-meta-label">发表于</span>
-                        <time datetime="2025-9-27T08:30:00.000Z" title="发表于 2025-9-27 16:30:00">2025-9-27</time>
-                    </span>
-                </div>
-                <div class="content">
-                    <p>荣耀部落目前正在积极招募14本及以上玩家！</p>
-                    <p>我们提供：</p>
-                    <ul>
-                        <li>活跃的部落氛围</li>
-                        <li>定期的部落战和联赛</li>
-                        <li>高级兵种捐赠</li>
-                        <li>专业的战术指导</li>
-                    </ul>
-                    <p>要求：</p>
-                    <ul>
-                        <li>活跃参与部落战</li>
-                        <li>每日捐赠兵力</li>
-                        <li>遵守部落规则</li>
-                    </ul>
-                    <p>有意者请联系首领或直接申请加入！</p>
-                </div>
-            </div>
-            
-            <div class="recent-post-item">
-                <a class="article-title" href="/2025/9/27/strategy/" title="新版本战术分析：超级部队搭配">新版本战术分析：超级部队搭配</a>
-                <div class="article-meta-wrap">
-                    <span class="post-meta-date">
-                        <i class="far fa-calendar-alt"></i>
-                        <span class="article-meta-label">发表于</span>
-                        <time datetime="2025-9-27T14:20:00.000Z" title="发表于 2025-9-27 22:20:00">2025-9-27</time>
-                    </span>
-                </div>
-                <div class="content">
-                    <p>随着最新版本的更新，超级部队的搭配策略有了新的变化。本文将分析几种高效的超级部队组合：</p>
-                    <p><strong>1. 超级野蛮人 + 超级弓箭手</strong></p>
-                    <p>这种组合适合清理外围建筑，超级野蛮人吸引火力，超级弓箭手在后方输出。</p>
-                    <p><strong>2. 超级巨人 + 超级法师</strong></p>
-                    <p>超级巨人作为肉盾，超级法师提供强大的AOE伤害，适合对抗密集防御。</p>
-                    <p><strong>3. 超级飞龙 + 气球兵</strong></p>
-                    <p>空中力量的完美组合，特别适合对抗地面防御密集的阵型。</p>
-                    <p>更多战术分析请查看完整文章...</p>
-                </div>
-            </div>
+            <!-- 内容将通过JavaScript动态加载 -->
         </div>
         
         <div class="aside-content" id="aside-content">
             <div class="card-widget card-info">
                 <div class="clan-info">
                     <div class="clan-badge">
-                        <i class="fas fa-crown"></i>
+                        <span>龘</span>
                     </div>
                     <div class="clan-name">龘</div>
-                    <div class="clan-tag"><div id="#2QJPVJQPQ"></div></div>
+                    <div class="clan-tag"><div id="clan-tag"></div></div>
                     <div class="clan-stats">
                         <div class="stat-item">
-                            <div class="stat-value">12</div>
+                            <div class="stat-value" id="clan-level">12</div>
                             <div class="stat-label">部落等级</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">48/50</div>
+                            <div class="stat-value" id="clan-members">48/50</div>
                             <div class="stat-label">成员数量</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">35</div>
+                            <div class="stat-value" id="clan-wins">35</div>
                             <div class="stat-label">胜利次数</div>
                         </div>
                     </div>
@@ -1057,175 +640,76 @@ body::before {
             
             <div class="card-widget card-announcement">
                 <div class="item-headline">
-                    <i class="fas fa-bullhorn"></i>
                     <span>部落公告</span>
                 </div>
-                <div class="announcement_content">
-                    <p><strong>部落战提醒：</strong>部落战不间断，请准备好战斗吧！</p>
-                    <p><strong>捐兵要求：</strong>请优先捐赠请求中的高级兵种，保持部落活跃度。</p>
-                    <p><strong>联赛准备：</strong>月度联赛即将开始，请确保你的攻击次数已准备好。</p>
+                <div class="announcement_content" id="announcement-content">
+                    <!-- 公告内容将通过JavaScript动态加载 -->
                 </div>
             </div>
             
             <div class="card-widget">
                 <div class="item-headline">
-                    <i class="fas fa-trophy"></i>
                     <span>部落排名</span>
                 </div>
-                <div class="content">
-                    <p><strong>服务器排名：</strong>第25135名</p>
-                    <p><strong>需要大本营等级：</strong>14</p>
-                    <p><strong>所需奖杯：</strong>2600</p>
-                    <p><strong>连胜记录：</strong>0场</p>
+                <div class="content" id="rankings-content">
+                    <!-- 排名内容将通过JavaScript动态加载 -->
                 </div>
             </div>
             
             <div class="card-widget">
                 <div class="item-headline">
-                    <i class="fas fa-users"></i>
                    <span>核心成员</span>
-                   </div>
-                   <div class="member-list">
-                       <div class="member-item">
-                           <div class="member-avatar">
-                               <img src="picture/c1.jpg">
-                           </div>
-                           <div class="member-name">三里雾</div>
-                           <div class="member-role">首领</div>
-                       </div>
-                       <div class="member-item">
-                           <div class="member-avatar">
-                               <img src="picture/c2.jpg">
-                           </div>
-                           <div class="member-name">火腿</div>
-                           <div class="member-role">副首领</div>
-                       </div>
-                       <div class="member-item">
-                           <div class="member-avatar">
-                               <img src="picture/c3.jpg">
-                           </div>
-                           <div class="member-name">狰狞圣者yzt</div>
-                           <div class="member-role">副首领</div>
-                       </div>
-
+                </div>
+                <div class="member-list" id="member-list">
+                    <!-- 成员列表将通过JavaScript动态加载 -->
                 </div>
             </div>
         </div>
     </main>
-	
-	
-	<!-- 宣言板块 -->
-	<div class="container">
-	        <header>
-	            <h1>部落成员宣言</h1>
-	            <p class="subtitle">正在奏响您的战歌</p>
-	        </header>
-	        
-	        <!-- 宣言显示区域 -->
-	        <div class="declarations-section">
-	            <div class="section-header">
-	                <h2>部落宣言展示</h2>
-	                <button class="refresh-btn" id="refreshBtn">
-	                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-	                        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-	                        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-	                    </svg>
-	                    刷新列表
-	                </button>
-	            </div>
-	            
-	            <div class="declarations-container" id="declarationsList">
-	                <!-- 宣言将在这里动态显示 -->
-	                <div class="empty-state">
-	                    <h3>暂无宣言</h3>
-	                    <p>等待部落勇士们发表他们的心声</p>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	
-	    <script>
-	        // 宣言数据
-	        const declarations = [
-	            {
-	                name: "狰狞圣者yzt",
-	                date: "2025-9-28 1:30",
-	                text: "嘤嘤嘤嘤嘤嘤嘤嘤"
-	            },
+    
+    <!-- 宣言板块 -->
+    <div class="container">
+        <header>
+            <h1>部落成员宣言</h1>
+            <p class="subtitle">正在奏响您的战歌</p>
+        </header>
+        
+        <!-- 宣言显示区域 -->
+        <div class="declarations-section">
+            <div class="section-header">
+                <h2>部落宣言展示</h2>
+                <button class="refresh-btn" id="refreshBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 极 8 2v1z"/>
+                        <path d="M8 极.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 极.658A.25.25 极 0 1 8 极.466z"/>
+                    </svg>
+                    刷新列表
+                </button>
+            </div>
+            
+            <div class="declarations-container" id="declarationsList">
+                <!-- 宣言将在这里动态显示 -->
+                <div class="empty-state">
+                    <h3>暂无宣言</h3>
+                    <p>等待部落勇士们发表他们的心声</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	        ];
-	
-	        // 刷新按钮事件
-	        document.getElementById('refreshBtn').addEventListener('click', function() {
-	            loadDeclarations();
-	            
-	            // 添加动画效果
-	            const btn = this;
-	            btn.style.transform = 'rotate(360deg)';
-	            btn.style.transition = 'transform 0.7s ease-in-out';
-	            
-	            setTimeout(() => {
-	                btn.style.transform = 'rotate(0deg)';
-	            }, 700);
-	        });
-	
-	        // 加载宣言列表
-	        function loadDeclarations() {
-	            const declarationsList = document.getElementById('declarationsList');
-	            
-	            if (declarations.length === 0) {
-	                declarationsList.innerHTML = `
-	                    <div class="empty-state">
-	                        <h3>暂无宣言</h3>
-	                        <p>等待部落勇士们发表他们的心声</p>
-	                    </div>
-	                `;
-	                return;
-	            }
-	            
-	            // 清空现有内容
-	            declarationsList.innerHTML = '';
-	            
-	            // 添加宣言卡片
-	            declarations.forEach(declaration => {
-	                const declarationElement = document.createElement('div');
-	                declarationElement.className = 'declaration-card fade-in';
-	                declarationElement.innerHTML = `
-	                    <div class="declaration-header">
-	                        <div class="member-name">${declaration.name}</div>
-	                        <div class="declaration-date">${declaration.date}</div>
-	                    </div>
-	                    <div class="declaration-text">${declaration.text}</div>
-	                `;
-	                declarationsList.appendChild(declarationElement);
-	            });
-	        }
-	
-	        // 页面加载时获取宣言列表
-	        document.addEventListener('DOMContentLoaded', function() {
-	            loadDeclarations();
-	        });
-	    </script>
-	   
     <footer id="footer">
         <div id="footer-wrap">
             <div class="ft">
                 <div class="ft-item-1">
                     <p class="ft-t">部落资源</p>
-                    <ul class="ft-links">
-                        <li><a href="https://clashpost.com/p">数据指南</a></li>
-                        <li><a href="/base-design/">阵型分享(暂不开放)</a></li>
-                        <li><a href="/update-news/">更新资讯(暂不开放)</a></li>
-                        <li><a href="/event-calendar/">活动日历(暂不开放)</a></li>
+                    <ul class="ft-links" id="footer-resources">
+                        <!-- 资源链接将通过JavaScript动态加载 -->
                     </ul>
                 </div>
                 <div class="ft-item-2">
                     <p class="ft-t">相关链接</p>
-                    <ul class="ft-links">
-                        <li><a href="https://supercell.com/en/games/clashofclans/" target="_blank">官方网站</a></li>
-                        <li><a href="https://clashofclans.fandom.com/wiki/Clash_of_Clans_Wiki" target="_blank">游戏百科</a></li>
-                        <li><a href="https://www.reddit.com/r/ClashOfClans/" target="_blank">Reddit社区</a></li>
-                        <li><a href="https://www.youtube.com/user/ClashOfClans" target="_blank">YouTube频道</a></li>
+                    <ul class="ft-links" id="footer-links">
+                        <!-- 相关链接将通过JavaScript动态加载 -->
                     </ul>
                 </div>
             </div>
@@ -1235,31 +719,209 @@ body::before {
         </div>
     </footer>
 
-
-
     <script>
-        // 简单的交互功能
+        // 使用fetch API加载JSON数据
         document.addEventListener('DOMContentLoaded', function() {
-            // 模拟部落成员数据加载
-            setTimeout(function() {
-                const memberItems = document.querySelectorAll('.member-item');
-                memberItems.forEach(item => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
+            // 加载JSON数据
+            fetch('data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 加载导航内容
+                    loadNavigation(data.navigation);
+                    
+                    // 加载页面内容
+                    loadPageContent(data.posts);
+                    
+                    // 加载部落信息
+                    loadClanInfo(data.clanInfo);
+                    
+                    // 加载宣言
+                    loadDeclarations(data.declarations);
+                    
+                    // 加载页脚内容
+                    loadFooter(data.footer);
+                    
+                    // 设置刷新按钮事件
+                    document.getElementById('refreshBtn').addEventListener('click', function() {
+                        loadDeclarations(data.declarations);
+                        
+                        // 添加动画效果
+                        const btn = this;
+                        btn.style.transform = 'rotate(360deg)';
+                        btn.style.transition = 'transform 0.7s ease-in-out';
+                        
+                        setTimeout(() => {
+                            btn.style.transform = 'rotate(0deg)';
+                        }, 700);
+                    });
+                })
+                .catch(error => {
+                    console.error('无法加载数据:', error);
+                    // 如果加载失败，显示错误信息
+                    document.getElementById('declarationsList').innerHTML = `
+                        <div class="empty-state">
+                            <h3>数据加载失败</h3>
+                            <p>请检查data.json文件是否存在</p>
+                        </div>
+                    `;
                 });
-            }, 500);
-            
-            // 加入部落按钮动画
-            const joinBtn = document.querySelector('.btn-join');
-            if (joinBtn) {
-                joinBtn.addEventListener('mouseover', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                joinBtn.addEventListener('mouseout', function() {
-                    this.style.transform = 'scale(1)';
+        });
+
+        // 加载导航内容
+        function loadNavigation(navigationData) {
+            const navItems = document.querySelectorAll('.menus_item a');
+            if (navItems.length && navigationData) {
+                navItems[0].querySelector('span').textContent = navigationData.home;
+                navItems[1].querySelector('span').textContent = navigationData.members;
+                navItems[2].querySelector('span').textContent = navigationData.war;
+                navItems[3].querySelector('span').textContent = navigationData.join;
+            }
+        }
+
+        // 加载页面主要内容
+        function loadPageContent(postsData) {
+            const postsContainer = document.getElementById('recent-posts');
+            if (postsContainer && postsData) {
+                postsContainer.innerHTML = '';
+                
+                postsData.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'recent-post-item';
+                    postElement.innerHTML = `
+                        <a class="article-title" href="${post.link}" title="${post.title}">${post.title}</a>
+                        <div class="article-meta-wrap">
+                            <span class="post-meta-date">
+                                <span class="article-meta-label">发表于</span>
+                                <time datetime="${post.datetime}" title="发表于 ${post.fullDate}">${post.date}</time>
+                            </span>
+                        </div>
+                        <div class="content">
+                            ${post.content}
+                        </div>
+                    `;
+                    postsContainer.appendChild(postElement);
                 });
             }
-        });
+        }
+
+        // 加载部落信息
+        function loadClanInfo(clanInfo) {
+            if (clanInfo) {
+                // 更新部落名称和标签
+                document.querySelector('.clan-name').textContent = clanInfo.name;
+                document.getElementById('clan-tag').textContent = clanInfo.tag;
+                
+                // 更新统计数据
+                document.getElementById('clan-level').textContent = clanInfo.level;
+                document.getElementById('clan-members').textContent = clanInfo.members;
+                document.getElementById('clan-wins').textContent = clanInfo.wins;
+                
+                // 更新公告
+                const announcementContent = document.getElementById('announcement-content');
+                if (announcementContent) {
+                    announcementContent.innerHTML = '';
+                    clanInfo.announcements.forEach(announcement => {
+                        const p = document.createElement('p');
+                        p.innerHTML = `<strong>${announcement.title}：</strong>${announcement.content}`;
+                        announcementContent.appendChild(p);
+                    });
+                }
+                
+                // 更新排名信息
+                const rankingsContent = document.getElementById('rankings-content');
+                if (rankingsContent && clanInfo.rankings) {
+                    rankingsContent.innerHTML = `
+                        <p><strong>服务器排名：</strong>${clanInfo.rankings.serverRank}</p>
+                        <p><strong>需要大本营等级：</strong>${clanInfo.rankings.requiredTownHall}</p>
+                        <p><strong>所需奖杯：</strong>${clanInfo.rankings.requiredTrophies}</p>
+                        <极><strong>连胜记录：</strong>${clanInfo.rankings.winStreak}</p>
+                    `;
+                }
+                
+                // 更新核心成员
+                const memberList = document.getElementById('member-list');
+                if (memberList && clanInfo.coreMembers) {
+                    memberList.innerHTML = '';
+                    
+                    clanInfo.coreMembers.forEach(member => {
+                        const memberItem = document.createElement('div');
+                        memberItem.className = 'member-item';
+                        memberItem.innerHTML = `
+                            <div class="member-avatar">
+                                <img src="${member.avatar}" alt="${member.name}">
+                            </div>
+                            <div class="member-name">${member.name}</div>
+                            <div class="member-role">${member.role}</div>
+                        `;
+                        memberList.appendChild(memberItem);
+                    });
+                }
+            }
+        }
+
+        // 加载宣言
+        function loadDeclarations(declarationsData) {
+            const declarationsList = document.getElementById('declarationsList');
+            
+            if (!declarationsData || declarationsData.length === 0) {
+                declarationsList.innerHTML = `
+                    <div class="empty-state">
+                        <h3>暂无宣言</h3>
+                        <p>等待部落勇士们发表他们的心声</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // 清空现有内容
+            declarationsList.innerHTML = '';
+            
+            // 添加宣言卡片
+            declarationsData.forEach(declaration => {
+                const declarationElement = document.createElement('div');
+                declarationElement.className = 'declaration-card fade-in';
+                declarationElement.innerHTML = `
+                    <div class="declaration-header">
+                        <div class="member-name">${declaration.name}</div>
+                        <div class="declaration-date">${declaration.date}</div>
+                    </div>
+                    <div class="declaration-text">${declaration.text}</div>
+                `;
+                declarationsList.appendChild(declarationElement);
+            });
+        }
+
+        // 加载页脚内容
+        function loadFooter(footerData) {
+            if (footerData) {
+                // 更新资源链接
+                const resourceLinks = document.getElementById('footer-resources');
+                if (resourceLinks) {
+                    resourceLinks.innerHTML = '';
+                    footerData.resources.forEach(resource => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="${resource.url}">${resource.title}</a>`;
+                        resourceLinks.appendChild(li);
+                    });
+                }
+                
+                // 更新相关链接
+                const relatedLinks = document.getElementById('footer-links');
+                if (relatedLinks) {
+                    relatedLinks.innerHTML = '';
+                    footerData.relatedLinks.forEach(link => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="${link.url}" target="_blank">${link.title}</a>`;
+                        relatedLinks.appendChild(li);
+                    });
+                }
+            }
+        }
     </script>
 </body>
 </html>
