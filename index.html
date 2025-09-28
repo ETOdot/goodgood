@@ -792,77 +792,7 @@
     </style>
 </head>
 <body>
-	
-	    <script>
-	        // 设置当前日期
-	        document.addEventListener('DOMContentLoaded', function() {
-	            const dateElement = document.getElementById('declarationDate');
-	            const now = new Date();
-	            const formattedDate = now.toLocaleDateString('zh-CN', {
-	                year: 'numeric',
-	                month: 'long',
-	                day: 'numeric',
-	                weekday: 'long'
-	            });
-	            dateElement.textContent = formattedDate;
-	            
-	            // 加载已保存的宣言
-	            loadDeclarations();
-	            
-	            // 表单提交处理
-	            document.getElementById('declarationForm').addEventListener('submit', function(e) {
-	                e.preventDefault();
-	                
-	                const name = document.getElementById('memberName').value.trim();
-	                const text = document.getElementById('declarationText').value.trim();
-	                const date = formattedDate;
-	                
-	                if (name && text) {
-	                    saveDeclaration(name, text, date);
-	                    document.getElementById('memberName').value = '';
-	                    document.getElementById('declarationText').value = '';
-	                    
-	                    // 显示成功消息
-	                    const successMsg = document.getElementById('successMessage');
-	                    successMsg.style.display = 'block';
-	                    setTimeout(() => {
-	                        successMsg.style.display = 'none';
-	                    }, 3000);
-	                }
-	            });
-	        });
-	        
-	        // 保存宣言到本地存储
-	        function saveDeclaration(name, text, date) {
-	            let declarations = JSON.parse(localStorage.getItem('tribeDeclarations')) || [];
-	            declarations.unshift({ name, text, date });
-	            localStorage.setItem('tribeDeclarations', JSON.stringify(declarations));
-	            loadDeclarations();
-	        }
-	        
-	        // 从本地存储加载宣言
-	        function loadDeclarations() {
-	            const declarations = JSON.parse(localStorage.getItem('tribeDeclarations')) || [];
-	            const declarationsList = document.getElementById('declarationsList');
-	            
-	            if (declarations.length === 0) {
-	                declarationsList.innerHTML = '<div class="empty-state">暂无宣言，成为第一个发表宣言的部落成员吧！</div>';
-	                return;
-	            }
-	            
-	            declarationsList.innerHTML = '';
-	            declarations.forEach(declaration => {
-	                const declarationElement = document.createElement('div');
-	                declarationElement.className = 'declaration-item';
-	                declarationElement.innerHTML = `
-	                    <div class="member-name">${declaration.name}</div>
-	                    <div class="declaration-text">${declaration.text}</div>
-	                    <div class="declaration-date">${declaration.date}</div>
-	                `;
-	                declarationsList.appendChild(declarationElement);
-	            });
-	        }
-	    </script>
+
     <style>
     /* 自适应图片样式 */
     .member-avatar img {
@@ -1043,7 +973,7 @@ body::before {
                             <div class="stat-label">部落等级</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">48/50</div>
+                            <div class="stat-value">50/50</div>
                             <div class="stat-label">成员数量</div>
                         </div>
                         <div class="stat-item">
@@ -1149,10 +1079,14 @@ body::before {
 	        const declarations = [
 	            {
 	                name: "狰狞圣者yzt",
-	                date: "2025-9-28 1:30",
+	                date: "2025-9-28",
 	                text: "嘤嘤嘤嘤嘤嘤嘤嘤"
 	            },
-
+	            {
+	                name: "三里雾",
+	                date: "2025-9-28",
+	                text: "核心价值观：部落人人平等，不存在上下级关系，首领只是工具人，为部落服务，部落权力属于全体成员，玩的开心就好，这里是永远的家部落公告：1、进群改下名字，最好和部落名字一样或者很相近2、如果长时间不能玩，加群并且在群里说一声，可以避免被当成死鱼3、竞赛可以不做，但不可以蹭，要做至少要做到一千，除非部落战联赛打的好的才可以蹭4、突袭最好打一下，如果部落位置不够会根据这个来判断是否为死鱼5、不打部落战、部落联赛记得挂红牌哟～6、人满可以先去分部，四部，都是老朋友"
+	            },
 	        ];
 	
 	        // 刷新按钮事件
